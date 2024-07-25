@@ -133,7 +133,7 @@ class AndroidPlatformBuilder(PlatformBuilder):
 
     android_api_level = 21
     if arch == "armeabi-v7a" or arch == "x86":
-      android_api_level = 19
+      android_api_level = 27
 
     self.cmake_args += [
         "-DCMAKE_SYSTEM_NAME=Android", f"-DCMAKE_ANDROID_NDK={android_nkd_dir}", f"-DCMAKE_ANDROID_ARCH_ABI={arch}",
