@@ -102,7 +102,9 @@ uint32_t arm_shift_c(uint32_t val, uint32_t shift_type, uint32_t shift_count, ui
         case arm_shift_lsl:
             r_val = val;
             r_val = r_val << shift_count;
-            carry = (r_val >> 32) & 0x1;
+//            carry = (r_val >> 32) & 0x1;
+            // 判断是否需要进位
+            carry = (shift_count > 31) ? 0 : (r_val >> (shift_count - 1)) & 0x1;
             val = r_val;
             break;
         case arm_shift_lsr:
